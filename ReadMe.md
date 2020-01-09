@@ -8,7 +8,7 @@ Add your Slack Signing Secret to your configuration
 }
 ```
 
-Add an authorization policy, named "VerifySlack" in this example and the SlackRequestHandler to the services
+Add an authorization policy, named "VerifySlack" in this example, and the SlackRequestHandler to the services
 ```c#
 public void ConfigureServices( IServiceCollection services )
 {
@@ -17,7 +17,7 @@ public void ConfigureServices( IServiceCollection services )
     // ...
 
     services.AddAuthorization( x => 
-        x.AddPolicy( "VerifySlack", p => p.AddRequirements( new SlackVerifiedRequirement( ) ) )
+        x.AddPolicy( "VerifyFromSlack", p => p.AddRequirements( new SlackVerifiedRequirement( ) ) )
     );
 
     services.AddSingleton<IAuthorizationHandler>( x =>
@@ -28,11 +28,11 @@ public void ConfigureServices( IServiceCollection services )
 }
 ```
 
-Then add an Authorize attribute to your methods that you want to verify are from Slack
+Then add an Authorize attribute to your methods that you want to verify are from Slack, using the policy name
 E.g. Slash command
 ```c#
 [HttpPost]
-[Authorize( Policy = "VerifySlack" )]
+[Authorize( Policy = "VerifyFromSlack" )]
 public ActionResult Post( [FromForm] SlashCommand slashCommand ) 
 {
     // ...
