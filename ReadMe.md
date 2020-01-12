@@ -2,6 +2,9 @@
 
 Verify that requests made to your application are from Slack
 
+*TODO Add in 401 response when verification fails*
+
+
 # Usage
 
 Add your Slack Signing Secret to your configuration
