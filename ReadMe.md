@@ -8,7 +8,7 @@ Add your Slack Signing Secret to your configuration
 }
 ```
 
-Add an authorization policy, named "VerifySlack" in this example, and the SlackRequestHandler to the services
+Add an authorization policy, named "VerifyFromSlack" in this example, and the SlackRequestHandler to the services
 ```c#
 public void ConfigureServices( IServiceCollection services )
 {
