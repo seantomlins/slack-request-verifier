@@ -1,3 +1,7 @@
+# Description
+
+Verify that requests made to your application are from Slack
+
 # Usage
 
 Add your Slack Signing Secret to your configuration
